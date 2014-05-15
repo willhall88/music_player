@@ -8,6 +8,6 @@ If loop is set then the first track will play after the final track
 
 
 Extra:
-Each track can have a duration
 It can have a randomise setting where the next track to play is random
+Each track can have a duration
 It can have jukebox functionality where you can select a track

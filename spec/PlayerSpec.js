@@ -60,5 +60,18 @@ describe("the player", function() {
     expect(player.currentTrack).toEqual(3);
   });
 
+
+  it("when it is initialised the shuffle option is off", function(){
+    expect(player.shuffle).toEqual(false);
+  });
+
+  it("when the shuffle button is on and a track is skipped a random track is started", function(){
+    spyOn(player, 'randomTrack').andReturn(4);
+    player.shuffle = true;
+    player.currentTrack=2;
+    player.skipForward();
+    expect(player.randomTrack).toEqual(4);
+  })
+
 });
  

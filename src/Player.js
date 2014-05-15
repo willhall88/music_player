@@ -6,19 +6,31 @@ function Player() {
                    5: 'five'
                   };
   this.currentTrack = 1 ;
-  this.looping = false;
   this.lastTrack = parseInt(Object.keys(this.playlist).pop());
+  this.looping = false;
+  this.shuffle = false;
 };
 
 Player.prototype.skipForward = function() {
-  if(this.looping == true && this.currentTrack == this.lastTrack){
-    return this.currentTrack = 1;
-};
-  if (this.currentTrack == this.lastTrack) return false;
-  this.currentTrack++;
+  if(this.shuffle === true){
+    console.log(this.currentTrack)
+    console.log(this.randomTrack())
+    return this.currentTrack = this.randomTrack();
+  };
+  if(this.currentTrack === this.lastTrack){
+    if(this.looping === true) return this.currentTrack = 1;
+    else return false;
+  }
+  return this.currentTrack++;
+
+
 };
 
 Player.prototype.skipBack = function() {
-  if (this.currentTrack == 1) return false;
+  if (this.currentTrack === 1) return false;
   this.currentTrack--;
+};
+
+Player.prototype.randomTrack = function() {
+  return (Math.ceil(Math.random() * this.lastTrack));
 };
