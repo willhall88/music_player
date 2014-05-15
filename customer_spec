@@ -1,0 +1,13 @@
+A player has a predefined list of tracks
+It can be started
+It can skip forward and backward between tracks
+It can be stopped to return it to the start
+It cannot rewind before the start
+By default it will stop after the final track
+If loop is set then the first track will play after the final track
+
+
+Extra:
+Each track can have a duration
+It can have a randomise setting where the next track to play is random
+It can have jukebox functionality where you can select a track
