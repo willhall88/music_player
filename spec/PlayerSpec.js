@@ -19,11 +19,20 @@ describe("the player", function() {
     expect(player.currentTrack).toEqual(2);
   });
 
-    it("can be skip backward to the previous track", function(){
+  it("can be skip backward to the previous track", function(){
     player.skipForward();
     expect(player.currentTrack).toEqual(2);
     player.skipBack();
     expect(player.currentTrack).toEqual(1);
   });
+
+  it("cannot skip backward if it is on the first track", function(){
+    player.skipBack();
+    expect(player.currentTrack).toEqual(1);
+  });
+
+  it("is initialised on not looping mode", function(){
+    expect(player.looping).toEqual(false);
+  })
 });
  

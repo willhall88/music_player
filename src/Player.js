@@ -6,6 +6,7 @@ function Player() {
                    5: 'five'
                   };
   this.currentTrack = 1;
+  this.looping = false;
 }
 
 Player.prototype.skipForward = function() {
@@ -13,5 +14,6 @@ Player.prototype.skipForward = function() {
 };
 
 Player.prototype.skipBack = function() {
+  if (this.currentTrack == 1) return false;
   this.currentTrack--;
 };
