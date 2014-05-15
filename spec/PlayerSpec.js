@@ -33,6 +33,32 @@ describe("the player", function() {
 
   it("is initialised on not looping mode", function(){
     expect(player.looping).toEqual(false);
-  })
+  });
+
+  it("should know what the last track is", function(){
+    player.currentTrack=player.lastTrack;
+    expect(player.currentTrack).toEqual(5);
+  });
+
+  it("if it is not looping then it cannot skip forward past the last track", function(){
+    player.currentTrack=player.lastTrack;
+    player.skipForward();
+    expect(player.currentTrack).toEqual(player.lastTrack);
+  });
+
+  it("if it is looping then it can skip from the last track to the first", function(){
+    player.looping = true;
+    player.currentTrack=player.lastTrack;
+    player.skipForward();
+    expect(player.currentTrack).toEqual(1);
+  });
+
+  it("if it is looping and on track 2 it should skip to track 3", function(){
+    player.looping = true;
+    player.currentTrack=2;
+    player.skipForward();
+    expect(player.currentTrack).toEqual(3);
+  });
+
 });
  
