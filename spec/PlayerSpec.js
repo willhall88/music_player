@@ -70,7 +70,7 @@ describe("the player", function() {
     player.shuffle = true;
     player.currentTrack=2;
     player.skipForward();
-    expect(player.randomTrack).toEqual(4);
+    expect(player.currentTrack).toEqual(4);
   })
 
 });

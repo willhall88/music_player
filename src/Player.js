@@ -13,8 +13,6 @@ function Player() {
 
 Player.prototype.skipForward = function() {
   if(this.shuffle === true){
-    console.log(this.currentTrack)
-    console.log(this.randomTrack())
     return this.currentTrack = this.randomTrack();
   };
   if(this.currentTrack === this.lastTrack){

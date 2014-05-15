@@ -1,0 +1,51 @@
+<html>
+<head>
+  <link href="./public/stylesheets/styles.css" rel="stylesheet" type="text/css">
+
+</head>
+<body>
+  <section class="controls">
+    <button class="forward" ><img src="last.png"></button>
+    <button class="back"><img src="first.png"></button>
+    <button class="shuffle"><img src="media-shuffle.png"></button>
+    <input class="repeat" type='checkbox' src="Repeat.jpg">
+  </section>
+  <section>
+    <h1> Track: <span id="display"></span></h1>
+  </section>
+
+  <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="src/Player.js"></script>
+  <script>
+      var player = new Player();
+    function updateDisplay(){
+      $('#display').html(player.currentTrack);
+    };
+
+    $(document).ready(function(){
+      updateDisplay();
+
+    $('.forward').on('click', function(){
+      player.skipForward();
+      updateDisplay();
+    });
+
+    $('.back').on('click', function(){
+      player.skipBack();
+      updateDisplay();
+    });
+
+    $('.shuffle').on('click', function(){
+      player.shuffle = true;
+      updateDisplay();
+    });
+
+    $('.repeat').on('click', function(){
+      player.looping = $(this).prop('checked');
+      
+    });
+
+  });
+  </script>
+</body>
+</html>
